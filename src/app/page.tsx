@@ -1,103 +1,175 @@
-import Image from "next/image";
+import React from 'react'
+import Navbar from './components/Navbar'
+import Voucher, { VoucherModel } from './components/Voucher'
 
-export default function Home() {
+export const vouchers: VoucherModel[] = [
+  {
+    id: 1,
+    code: "JUDY10",
+    discount: 10,
+    expirationDate: "2025-12-31",
+    createdAt: "2025-05-01",
+    updatedAt: "2025-05-01",
+    userId: 101,
+    companyName: "Judy Luly's",
+    companyId: 201,
+    companyLogo: "https://www.svgrepo.com/show/493874/magic-hat.svg",
+    briefDescription: "10% de descuento todos los días - Contado efectivo",
+    availableDays: ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"],
+    hasBeenUsed: false
+  },
+  {
+    id: 2,
+    code: "BURGER15",
+    discount: 15,
+    expirationDate: "2025-11-30",
+    createdAt: "2025-05-02",
+    updatedAt: "2025-05-02",
+    userId: 102,
+    companyName: "Big Bite Burgers",
+    companyId: 202,
+    companyLogo: "https://www.svgrepo.com/show/509984/burger-fast-food.svg",
+    briefDescription: "15% en combos grandes - Solo lunes y miércoles",
+    availableDays: ["Lunes", "Miércoles"],
+    hasBeenUsed: false
+  },
+  {
+    id: 3,
+    code: "PIZZA20",
+    discount: 20,
+    expirationDate: "2025-08-15",
+    createdAt: "2025-05-03",
+    updatedAt: "2025-05-03",
+    userId: 103,
+    companyName: "La Rústica Pizza",
+    companyId: 203,
+    companyLogo: "https://www.svgrepo.com/show/509966/pizza-slice.svg",
+    briefDescription: "20% en pizzas grandes - Todos los martes",
+    availableDays: ["Martes"],
+    hasBeenUsed: false
+  },
+  {
+    id: 4,
+    code: "GYM5",
+    discount: 5,
+    expirationDate: "2025-07-01",
+    createdAt: "2025-05-04",
+    updatedAt: "2025-05-04",
+    userId: 104,
+    companyName: "PowerFit Gym",
+    companyId: 204,
+    companyLogo: "https://www.svgrepo.com/show/512879/dumbbell.svg",
+    briefDescription: "5% de descuento en membresía mensual",
+    availableDays: ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+    hasBeenUsed: false
+  },
+  {
+    id: 5,
+    code: "BOOK10",
+    discount: 10,
+    expirationDate: "2025-09-30",
+    createdAt: "2025-05-05",
+    updatedAt: "2025-05-05",
+    userId: 105,
+    companyName: "Librería Central",
+    companyId: 205,
+    companyLogo: "https://www.svgrepo.com/show/446864/book.svg",
+    briefDescription: "10% en libros seleccionados - Solo sábados",
+    availableDays: ["Sábado"],
+    hasBeenUsed: false
+  },
+  {
+    id: 6,
+    code: "CAFE2X1",
+    discount: 50,
+    expirationDate: "2025-06-30",
+    createdAt: "2025-05-06",
+    updatedAt: "2025-05-06",
+    userId: 106,
+    companyName: "Café Aroma",
+    companyId: 206,
+    companyLogo: "https://www.svgrepo.com/show/509951/coffee-cup.svg",
+    briefDescription: "2x1 en cafés especiales - Viernes a domingo",
+    availableDays: ["Viernes", "Sábado", "Domingo"],
+    hasBeenUsed: false
+  },
+  {
+    id: 7,
+    code: "BEAUTY25",
+    discount: 25,
+    expirationDate: "2025-10-10",
+    createdAt: "2025-05-07",
+    updatedAt: "2025-05-07",
+    userId: 107,
+    companyName: "Beauty Express",
+    companyId: 207,
+    companyLogo: "https://www.svgrepo.com/show/446440/cosmetics.svg",
+    briefDescription: "25% en tratamientos faciales",
+    availableDays: ["Martes", "Jueves", "Sábado"],
+    hasBeenUsed: false
+  },
+  {
+    id: 8,
+    code: "ELECTRO5",
+    discount: 5,
+    expirationDate: "2025-08-31",
+    createdAt: "2025-05-08",
+    updatedAt: "2025-05-08",
+    userId: 108,
+    companyName: "Tecno Hogar",
+    companyId: 208,
+    companyLogo: "https://www.svgrepo.com/show/509832/laptop-electronics.svg",
+    briefDescription: "5% en productos seleccionados - Contado efectivo",
+    availableDays: ["Lunes", "Miércoles", "Viernes"],
+    hasBeenUsed: false
+  },
+  {
+    id: 9,
+    code: "VEGGIE12",
+    discount: 12,
+    expirationDate: "2025-09-01",
+    createdAt: "2025-05-09",
+    updatedAt: "2025-05-09",
+    userId: 109,
+    companyName: "Verde Vivo",
+    companyId: 209,
+    companyLogo: "https://www.svgrepo.com/show/511095/vegetables.svg",
+    briefDescription: "12% en productos orgánicos",
+    availableDays: ["Todos"],
+    hasBeenUsed: false
+  },
+  {
+    id: 10,
+    code: "ICE30",
+    discount: 30,
+    expirationDate: "2025-12-25",
+    createdAt: "2025-05-10",
+    updatedAt: "2025-05-10",
+    userId: 110,
+    companyName: "Ice Dream",
+    companyId: 210,
+    companyLogo: "https://www.svgrepo.com/show/511337/ice-cream.svg",
+    briefDescription: "30% en helados artesanales - Martes y jueves",
+    availableDays: ["Martes", "Jueves"],
+    hasBeenUsed: false
+  }
+];
+
+
+function page() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+    <>
+    <Navbar/>
+    <div>
+      <h1 className="text-2xl font-bold text-center mt-4">Vouchers</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+        {vouchers.map((voucher) => (
+          <Voucher key={voucher.id} {...voucher} />
+        ))}
+      </div>
     </div>
-  );
+    </>
+  )
 }
+
+export default page
