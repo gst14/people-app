@@ -14,7 +14,7 @@ const vouchersSample: VoucherModel[] = [
     userId: 101,
     companyName: "Judy Luly's",
     companyId: 201,
-    companyLogo: "img/shop.png",
+    companyLogo: "/img/shop.png",
     briefDescription: "10% de descuento todos los días - Contado efectivo",
     availableDays: ["monday", "tuesday", "wednesday", "thursday", "friday"],
     hasBeenUsed: false
@@ -29,7 +29,7 @@ const vouchersSample: VoucherModel[] = [
     userId: 102,
     companyName: "Big Bite Burgers",
     companyId: 202,
-    companyLogo: "img/shop.png",
+    companyLogo: "/img/shop.png",
     briefDescription: "15% en combos grandes - Solo lunes y miércoles",
     availableDays: ["monday", "wednesday"],
     hasBeenUsed: false
@@ -44,7 +44,7 @@ const vouchersSample: VoucherModel[] = [
     userId: 103,
     companyName: "La Rústica Pizza",
     companyId: 203,
-    companyLogo: "img/shop.png",
+    companyLogo: "/img/shop.png",
     briefDescription: "20% en pizzas grandes - Todos los martes",
     availableDays: ["tuesday"],
     hasBeenUsed: false
@@ -59,7 +59,7 @@ const vouchersSample: VoucherModel[] = [
     userId: 104,
     companyName: "PowerFit Gym",
     companyId: 204,
-    companyLogo: "img/shop.png",
+    companyLogo: "/img/shop.png",
     briefDescription: "5% de descuento en membresía mensual",
     availableDays: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
     hasBeenUsed: false
@@ -74,7 +74,7 @@ const vouchersSample: VoucherModel[] = [
     userId: 105,
     companyName: "Librería Central",
     companyId: 205,
-    companyLogo: "img/shop.png",
+    companyLogo: "/img/shop.png",
     briefDescription: "10% en libros seleccionados - Solo sábados",
     availableDays: ["saturday"],
     hasBeenUsed: false
@@ -89,7 +89,7 @@ const vouchersSample: VoucherModel[] = [
     userId: 106,
     companyName: "Café Aroma",
     companyId: 206,
-    companyLogo: "img/shop.png",
+    companyLogo: "/img/shop.png",
     briefDescription: "2x1 en cafés especiales - Viernes a domingo",
     availableDays: ["friday", "saturday", "sunday"],
     hasBeenUsed: false
@@ -104,7 +104,7 @@ const vouchersSample: VoucherModel[] = [
     userId: 107,
     companyName: "Beauty Express",
     companyId: 207,
-    companyLogo: "img/shop.png",
+    companyLogo: "/img/shop.png",
     briefDescription: "25% en tratamientos faciales",
     availableDays: ["tuesday", "thursday", "saturday"],
     hasBeenUsed: false
@@ -119,7 +119,7 @@ const vouchersSample: VoucherModel[] = [
     userId: 108,
     companyName: "Tecno Hogar",
     companyId: 208,
-    companyLogo: "img/shop.png",
+    companyLogo: "/img/shop.png",
     briefDescription: "5% en productos seleccionados - Contado efectivo",
     availableDays: ["monday", "wednesday", "friday"],
     hasBeenUsed: false
@@ -134,7 +134,7 @@ const vouchersSample: VoucherModel[] = [
     userId: 109,
     companyName: "Verde Vivo",
     companyId: 209,
-    companyLogo: "img/shop.png",
+    companyLogo: "/img/shop.png",
     briefDescription: "12% en productos orgánicos",
     // availableDays: ["Todos"],
     availableDays: ["Whole Week"],
@@ -150,7 +150,7 @@ const vouchersSample: VoucherModel[] = [
     userId: 110,
     companyName: "Ice Dream",
     companyId: 210,
-    companyLogo: "img/shop.png",
+    companyLogo: "/img/shop.png",
     briefDescription: "30% en helados artesanales - Martes y jueves",
     availableDays: ["tuesday", "thursday"],
     hasBeenUsed: false
@@ -166,6 +166,7 @@ function page() {
   return (
     <>
     <Navbar/>
+    {/* TODO: Divide screen in two columns with tailwind. One column 30% of screen and the second one 70% remain */}
     <Vouchers items={vouchersSample} />
     </>
   )
