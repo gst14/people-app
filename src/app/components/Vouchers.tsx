@@ -105,8 +105,8 @@ function Vouchers({ items }: VouchersProps) {
     setFilteredVouchers(_filteredVouchers);
   };
   return (
-    <div>
-      <h1 className="text-2xl font-bold text-center mt-4">Vouchers</h1>
+    <div className="bg-stone-950">
+      <h1 className="text-2xl font-bold text-center">Vouchers</h1>
       <div className="flex justify-center mt-4">
         <div className="flex items-center w-full max-w-xl rounded-md border border-neutral-700 bg-neutral-900 px-4 py-2">
           <Search className="h-5 w-5 text-neutral-400" />
