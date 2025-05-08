@@ -1,8 +1,9 @@
 import React from 'react'
 import Navbar from './components/Navbar'
-import Voucher, { VoucherModel } from './components/Voucher'
+import { VoucherModel } from './components/Voucher'
+import Vouchers from './components/Vouchers';
 
-export const vouchers: VoucherModel[] = [
+const vouchersSample: VoucherModel[] = [
   {
     id: 1,
     code: "JUDY10",
@@ -13,9 +14,9 @@ export const vouchers: VoucherModel[] = [
     userId: 101,
     companyName: "Judy Luly's",
     companyId: 201,
-    companyLogo: "https://www.svgrepo.com/show/493874/magic-hat.svg",
+    companyLogo: "img/shop.png",
     briefDescription: "10% de descuento todos los días - Contado efectivo",
-    availableDays: ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"],
+    availableDays: ["monday", "tuesday", "wednesday", "thursday", "friday"],
     hasBeenUsed: false
   },
   {
@@ -28,9 +29,9 @@ export const vouchers: VoucherModel[] = [
     userId: 102,
     companyName: "Big Bite Burgers",
     companyId: 202,
-    companyLogo: "https://www.svgrepo.com/show/509984/burger-fast-food.svg",
+    companyLogo: "img/shop.png",
     briefDescription: "15% en combos grandes - Solo lunes y miércoles",
-    availableDays: ["Lunes", "Miércoles"],
+    availableDays: ["monday", "wednesday"],
     hasBeenUsed: false
   },
   {
@@ -43,9 +44,9 @@ export const vouchers: VoucherModel[] = [
     userId: 103,
     companyName: "La Rústica Pizza",
     companyId: 203,
-    companyLogo: "https://www.svgrepo.com/show/509966/pizza-slice.svg",
+    companyLogo: "img/shop.png",
     briefDescription: "20% en pizzas grandes - Todos los martes",
-    availableDays: ["Martes"],
+    availableDays: ["tuesday"],
     hasBeenUsed: false
   },
   {
@@ -58,9 +59,9 @@ export const vouchers: VoucherModel[] = [
     userId: 104,
     companyName: "PowerFit Gym",
     companyId: 204,
-    companyLogo: "https://www.svgrepo.com/show/512879/dumbbell.svg",
+    companyLogo: "img/shop.png",
     briefDescription: "5% de descuento en membresía mensual",
-    availableDays: ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+    availableDays: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
     hasBeenUsed: false
   },
   {
@@ -73,9 +74,9 @@ export const vouchers: VoucherModel[] = [
     userId: 105,
     companyName: "Librería Central",
     companyId: 205,
-    companyLogo: "https://www.svgrepo.com/show/446864/book.svg",
+    companyLogo: "img/shop.png",
     briefDescription: "10% en libros seleccionados - Solo sábados",
-    availableDays: ["Sábado"],
+    availableDays: ["saturday"],
     hasBeenUsed: false
   },
   {
@@ -88,9 +89,9 @@ export const vouchers: VoucherModel[] = [
     userId: 106,
     companyName: "Café Aroma",
     companyId: 206,
-    companyLogo: "https://www.svgrepo.com/show/509951/coffee-cup.svg",
+    companyLogo: "img/shop.png",
     briefDescription: "2x1 en cafés especiales - Viernes a domingo",
-    availableDays: ["Viernes", "Sábado", "Domingo"],
+    availableDays: ["friday", "saturday", "sunday"],
     hasBeenUsed: false
   },
   {
@@ -103,9 +104,9 @@ export const vouchers: VoucherModel[] = [
     userId: 107,
     companyName: "Beauty Express",
     companyId: 207,
-    companyLogo: "https://www.svgrepo.com/show/446440/cosmetics.svg",
+    companyLogo: "img/shop.png",
     briefDescription: "25% en tratamientos faciales",
-    availableDays: ["Martes", "Jueves", "Sábado"],
+    availableDays: ["tuesday", "thursday", "saturday"],
     hasBeenUsed: false
   },
   {
@@ -118,9 +119,9 @@ export const vouchers: VoucherModel[] = [
     userId: 108,
     companyName: "Tecno Hogar",
     companyId: 208,
-    companyLogo: "https://www.svgrepo.com/show/509832/laptop-electronics.svg",
+    companyLogo: "img/shop.png",
     briefDescription: "5% en productos seleccionados - Contado efectivo",
-    availableDays: ["Lunes", "Miércoles", "Viernes"],
+    availableDays: ["monday", "wednesday", "friday"],
     hasBeenUsed: false
   },
   {
@@ -133,9 +134,10 @@ export const vouchers: VoucherModel[] = [
     userId: 109,
     companyName: "Verde Vivo",
     companyId: 209,
-    companyLogo: "https://www.svgrepo.com/show/511095/vegetables.svg",
+    companyLogo: "img/shop.png",
     briefDescription: "12% en productos orgánicos",
-    availableDays: ["Todos"],
+    // availableDays: ["Todos"],
+    availableDays: ["Whole Week"],
     hasBeenUsed: false
   },
   {
@@ -148,26 +150,23 @@ export const vouchers: VoucherModel[] = [
     userId: 110,
     companyName: "Ice Dream",
     companyId: 210,
-    companyLogo: "https://www.svgrepo.com/show/511337/ice-cream.svg",
+    companyLogo: "img/shop.png",
     briefDescription: "30% en helados artesanales - Martes y jueves",
-    availableDays: ["Martes", "Jueves"],
+    availableDays: ["tuesday", "thursday"],
     hasBeenUsed: false
   }
 ];
 
 
 function page() {
+
+  
+
+
   return (
     <>
     <Navbar/>
-    <div>
-      <h1 className="text-2xl font-bold text-center mt-4">Vouchers</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-        {vouchers.map((voucher) => (
-          <Voucher key={voucher.id} {...voucher} />
-        ))}
-      </div>
-    </div>
+    <Vouchers items={vouchersSample} />
     </>
   )
 }

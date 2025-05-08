@@ -16,11 +16,11 @@ export interface VoucherModel {
 
 function Voucher(voucher: VoucherModel) {
     return (
-        <div className="bg-white shadow-md rounded-lg p-4">
+        <div className="bg-white shadow-md rounded-lg p-4 text-black">
             <div className="flex items-center">
                 <img src={voucher.companyLogo} alt={voucher.companyName} className="w-16 h-16 rounded-full mr-4" />
                 <div>
-                    <h2 className="text-xl font-bold">{voucher.companyName}</h2>
+                    <h2 className="text-xl text-black font-bold">{voucher.companyName}</h2>
                     <p className="text-gray-600">{voucher.briefDescription}</p>
                 </div>
             </div>

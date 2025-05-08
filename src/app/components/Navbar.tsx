@@ -1,3 +1,4 @@
+import { firaCode } from '@/fonts'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
@@ -8,7 +9,7 @@ const navigation = [
   { name: 'Contact', href: '#', current: false },
 ]
 
-function classNames(...classes: any[]) {
+function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
@@ -33,7 +34,7 @@ export default function Navbar() {
                 src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
                 className="h-8 w-auto"
               /> */}
-              <span>JBK</span><span>People</span>
+              <span className={firaCode.variable}>JBK</span><span>People</span>
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
